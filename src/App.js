@@ -19,6 +19,10 @@ export default function App() {
     setCurrentPage((currentPage) => currentPage + 1);
   };
 
+  const onClickPrev = () => {
+    setCurrentPage((currentPage) => currentPage - 1);
+  }
+
   useEffect(() => {
       fetch('https://jsonplaceholder.typicode.com/posts')
       .then((res) => res.json())
@@ -44,6 +48,8 @@ export default function App() {
         <h3>No data</h3>
       )}
       <button onClick={onClickNext}>Next</button>
+     {indexOfLastPost !== 10 && <button onClick={onClickPrev}>Previous</button>}
+      
     </div>
   );
 }
